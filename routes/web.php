@@ -34,13 +34,13 @@ use App\Http\Controllers\PageController;
 // Route::post('/addproduct',[RoomController::class,"creatSession"]);
 
 // Route::get('showproducts',[RoomController::class,"showProduct"])->name('showproducts');
-// Route::get('/index',[
-//     'as' =>'trang-chu',
-//     'uses'=>'PageController@getIndex'
-// ]);
-
+Route::get('trangchu',[PageController::class,'getIndex']);
+Route::get('/detail/{id}', [PageController::class,'getDetail']);
 // Route::get('master',[PageController::class, 'getIndex']);
 // Route::post('master','singupController@displayInfor');
 // Route::get('database',function(){
 //     $chema::create('loaisanpham',function('loaisanpham')($table))
 // });
+// Route::get('signup',"signupController@indexx");
+// Route::post('signup',"signupController@displayInfor");
+

@@ -10,7 +10,7 @@ use Illuminate\Http\Request\signupRequest;
 class signupController extends Controller
 {
     //
-    public function index(){
+    public function indexx(){
         return view('signup');
     }
     public function displayInfor(RequestsSignupRequest $Request){

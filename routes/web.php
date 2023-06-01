@@ -35,7 +35,16 @@ use App\Http\Controllers\PageController;
 
 // Route::get('showproducts',[RoomController::class,"showProduct"])->name('showproducts');
 Route::get('trangchu',[PageController::class,'getIndex']);
-Route::get('/detail/{id}', [PageController::class,'getDetail']);
+Route::get('/detail/{id}', [App\Http\Controllers\PageController::class, 'getDetail']);
+Route::get('/type/{id}', [App\Http\Controllers\PageController::class, 'getLoaiSp']);
+// use Illuminate\Support\Facades\Schema;
+// Route::get('database',function(){
+//     Schema::create('loaisanpham',function($table){
+//         $table->increments('id');
+//         $table->string('ten',200);
+//     });
+//     echo"Đã thực hiện lệnh tạo bảng thành công";
+// });
 // Route::get('master',[PageController::class, 'getIndex']);
 // Route::post('master','singupController@displayInfor');
 // Route::get('database',function(){

@@ -67,6 +67,9 @@
                                                 <span class="flash-sale">{{$new->promotion_price}}đồng</span>
                                             </p>
                                         </div>
+                                        <div class="single-item-footer">
+                                            <a href="detail/{{ $new['id'] }}" class="btn btn-primary">Detail</a>
+                                        </div>
                                     </div>
                                 </div>
                                 @if ($loop->iteration % 4 === 0)
@@ -94,6 +97,10 @@
                                                     <span class="flash-sale">{{number_format($spkm->promotion_price)}}
                                                         đồng</span>
                                                 </p>
+                                            </div>
+                                            <div class="single-item-footer">
+                                                {{-- href="{{ route('page.chitiet_sanpham', ['id' => $spkm->id]) }}" --}}
+                                                <a href="detail/{{ $spkm['id'] }}" class="btn btn-primary">Detail</a>
                                             </div>
                                         </div>
                                     </div>

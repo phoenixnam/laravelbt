@@ -37,14 +37,23 @@ use App\Http\Controllers\PageController;
 Route::get('trangchu',[PageController::class,'getIndex']);
 Route::get('/detail/{id}', [App\Http\Controllers\PageController::class, 'getDetail']);
 Route::get('/type/{id}', [App\Http\Controllers\PageController::class, 'getLoaiSp']);
-// use Illuminate\Support\Facades\Schema;
-// Route::get('database',function(){
-//     Schema::create('loaisanpham',function($table){
-//         $table->increments('id');
-//         $table->string('ten',200);
-//     });
-//     echo"Đã thực hiện lệnh tạo bảng thành công";
-// });
+
+Route::get('database',function(){
+    Schema::create('loaisanpham',function($table){
+        $table->increments('id');
+        $table->string('ten',200);
+    });
+    echo"Đã thực hiện lệnh tạo bảng thành công";
+});
+
+Route::get('/admin', [App\Http\Controllers\PageController::class, 'getIndexAdmin']);											
+Route::get('/admin-add-form', [App\Http\Controllers\PageController::class, 'getAdminAdd'])->name('add-product');
+Route::post('/admin-add-form', [App\Http\Controllers\PageController::class, 'postAdminAdd']);	
+Route::get('/admin-edit-form/{id}', [App\Http\Controllers\PageController::class, 'getAdminEdit']);
+Route::post('/admin-edit', [App\Http\Controllers\PageController::class, 'postAdminEdit']);	
+Route::post('/admin-delete/{id}', [App\Http\Controllers\PageController::class, 'postAdminDelete']);	
+Route::get('/admin-export', [App\Http\Controllers\PageController::class, 'exportAdminProduct'])->name('export');
+
 // Route::get('master',[PageController::class, 'getIndex']);
 // Route::post('master','singupController@displayInfor');
 // Route::get('database',function(){

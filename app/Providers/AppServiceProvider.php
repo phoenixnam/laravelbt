@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Models\products;
-use App\Models\type_products;
+use App\Models\type_product;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Session;
@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('header', function ($view) {
-            $loai_sp = type_products::all();
+            $loai_sp = type_product::all();
             $view->with('loai_sp', $loai_sp);
         });
         view()->composer('page.product_type', function ($view) {

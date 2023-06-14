@@ -34,7 +34,7 @@ use App\Http\Controllers\PageController;
 // Route::post('/addproduct',[RoomController::class,"creatSession"]);
 
 // Route::get('showproducts',[RoomController::class,"showProduct"])->name('showproducts');
-// Route::get('trangchu',[PageController::class,'getIndex']);
+Route::get('trangchu',[PageController::class,'getIndex']);
 // Route::get('/detail/{id}', [App\Http\Controllers\PageController::class, 'getDetail']);
 // Route::get('/type/{id}', [App\Http\Controllers\PageController::class, 'getLoaiSp']);
 
@@ -70,16 +70,19 @@ Route::get('/Register',[App\Http\Controllers\UserController::class,'resgister'])
 // Route::post('signup',"signupController@displayInfor");
 
 //Login - register
-Route::get('/register', function () {return view('page.register');});
-Route::post('/register', [App\Http\Controllers\UserController::class,'Register']);
 
-Route::get('/login', function () {return view('page.login');});
-Route::post('/login',[App\Http\Controllers\UserController::class,'Login']);
 
+
+
+Route::get('/register', function () {					
+	return view('users.register');					
+});	
+    
+Route::post('/register', [App\Http\Controllers\UserController::class, 'Register']);	
+
+Route::get('/login', function () {						
+    return view('users.login');						
+});
+
+Route::post('/login', [App\Http\Controllers\UserController::class, 'Login']);
 Route::get('/logout', [App\Http\Controllers\UserController::class, 'Logout']);
-
-//---------------Cart---------------------------//
-Route::get('add-to-cart/{id}', [App\Http\Controllers\PageController::class, 'getAddToCart'])->name('themgiohang');
-Route::get('del-cart/{id}', [App\Http\Controllers\PageController::class, 'getDelItemCart'])->name('xoagiohang');
-
-

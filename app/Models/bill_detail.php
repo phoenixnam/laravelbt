@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class bill_detail extends Model
 {
     use HasFactory;
+    protected $table ='bill_detail';
+    public function products(){
+        return $this ->hasMany("App\Product");
+    }
 }
+

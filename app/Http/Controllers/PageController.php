@@ -100,6 +100,24 @@ class PageController extends Controller
       $product->delete();
       return $this->getIndexAdmin();  
     }
+    public function getAddToCart(Request $req, $id)
+    {
+        if (Session::has('user')) {
+            $products = products::find($id);
+            if ($products) {
+                $oldCart = session('cart') ? session('cart') : null;
+                $cart = new Cart($oldCart);
+                $cart->add($products, $id);
+                $req->session()->put('cart', $cart);
+                return redirect()->back();
+            } else {
+                return '<script>alert("Không tìm thấy sản phẩm này.");window.location.assign("/");</script>';
+            }
+        } else {
+            return '<script>alert("Vui lòng đăng nhập để sử dụng chức năng này.");window.location.assign("/login");</script>';
+        }
+    }
+
     
 }
 

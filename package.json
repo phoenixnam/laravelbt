@@ -5,7 +5,10 @@
         "build": "vite build"
     },
     "devDependencies": {
+        "@babel/core": "^7.22.1",
+        "@babel/preset-react": "^7.22.3",
         "axios": "^1.1.2",
+        "babel-loader": "^9.1.2",
         "laravel-vite-plugin": "^0.7.2",
         "vite": "^4.0.0"
     }

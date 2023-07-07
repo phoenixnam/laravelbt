@@ -11,12 +11,15 @@ class Cart extends Model
     public $totalPrice = 0;
 
     public function __construct($oldCart = null)
+    // oldcart: kiểm tra sản phẩm đó tồn tại trong giỏ hàng hay chưa
     {
         if ($oldCart) {
             $this->items = $oldCart->items;
             $this->totalQty = $oldCart->totalQty;
             $this->totalPrice = $oldCart->totalPrice;
         }
+        
+       
     }
 
     public function add($item, $id, $qty = 1)
@@ -50,7 +53,9 @@ class Cart extends Model
             if ($this->items[$id]['qty'] <= 0) {
                 unset($this->items[$id]);
             }
+
         }
+       
     }
 
     public function removeItem($id)
@@ -60,5 +65,8 @@ class Cart extends Model
             $this->totalPrice -= $this->items[$id]['price'];
             unset($this->items[$id]);
         }
+        
     }
+    
+    
 }

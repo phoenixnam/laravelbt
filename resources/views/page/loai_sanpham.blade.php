@@ -112,6 +112,7 @@
               {{$sp_khac->links("pagination::bootstrap-4")}}
             </div>
             <div class="space40">&nbsp;</div>
+            <div>bai tap ve nha</div>
           </div> <!-- .beta-products-list -->
         </div>
       </div> <!-- end section with sidebar and main content -->
